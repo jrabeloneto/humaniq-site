@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
+/*
+  ── Humaniq · "Marca em bloco" ─────────────────────────────────────────
+  Azul dominante + branco e derivados (ancorado no logo #00008E).
+  Blocos de cor sólidos, sans forte (Archivo), cards e botões encorpados.
+  Nada de serifada, filete-minimal ou seção numerada de revista.
+  Toda a família é hue ~240 (azul) — cor + branco, nada fora disso.
+*/
+
+@theme {
+  --color-white: #ffffff;
+  --color-paper: #eeeefb; /* fundo claro, branco-azulado */
+  --color-mist: #e3e3fa; /* tint claro — cards/blocos secundários */
+  --color-sky: #9a9af0; /* azul claro — detalhes/ilustrativo */
+  --color-blue: #2a2ae6; /* azul elétrico — CTA, links, destaques */
+  --color-royal: #00008e; /* AZUL DA MARCA — blocos dominantes / hero */
+  --color-ink: #070733; /* tinta: texto sobre claro / mais escuro */
+
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 22px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+/* Display — Archivo, pesada e travada */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+.font-display-black {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Olho/label — caixa alta forte */
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Botões encorpados */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.2s ease, background-color 0.25s ease, color 0.25s ease;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: var(--color-blue);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-royal);
+}
+.btn-light {
+  background: #fff;
+  color: var(--color-ink);
+}
+.btn-light:hover {
+  background: var(--color-mist);
+}
+.btn-ghost {
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-blue);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

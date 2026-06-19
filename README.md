@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Humaniq — Site institucional
 
-## Getting Started
+Site one-page da **Humaniq Consultoria de RH** (Manaus/AM). Direção de arte
+"Editorial Humanista": tipografia protagonista (Fraunces + Geist), paleta
+ancorada no azul real da marca, motion sóbrio, zero estética de template.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + **TypeScript**
+- **Tailwind CSS v4** (tokens em `app/globals.css` via `@theme`)
+- **Motion** (animações) · **Lenis** (smooth scroll sutil, respeita reduced-motion)
+- **next/font** (Fraunces + Geist) · **lucide-react** (ícones discretos)
+
+## Rodar
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # build de produção
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Deploy-ready para a **Vercel** (importar o repositório; sem config extra).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Onde editar (pontos do cliente)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| O quê | Onde |
+|------|------|
+| **Textos, nomes, serviços, contato** | `lib/site.ts` — ponto único |
+| **Cores (tokens)** | `app/globals.css`, bloco `@theme` (`--color-navy`, `--color-blue`, etc.) |
+| **Fontes** | `app/layout.tsx` |
+| **Metadata / SEO / OG image** | `app/layout.tsx` (`metadata`) |
+| **Logo / favicon** | `public/humaniq-logo.png` |
 
-## Learn More
+Todos os pontos que dependem de material do cliente estão marcados no código com
+comentários `TODO:` — principalmente **fotos oficiais** (hero, CEO Marcela,
+equipe) e o **hex exato do azul** da marca.
 
-To learn more about Next.js, take a look at the following resources:
+### Cores
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+A paleta foi **amostrada do logo** (`public/humaniq-logo.png`): o azul real é
+`#00008E`. Tinta dos títulos/textos = `--color-navy #0B0B45`; acento (CTA/links)
+= `--color-blue #00008E`. Se a Humaniq fornecer o hex oficial, ajuste esses dois
+tokens em `app/globals.css`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Envio do formulário
 
-## Deploy on Vercel
+O formulário (`components/site/Contato.tsx`) hoje faz POST para o stub
+`app/api/contato/route.ts`, que apenas valida e loga. Para enviar de verdade:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Route handler** — implemente o envio em `app/api/contato/route.ts`
+   (Resend/Nodemailer/SendGrid). Coloque chaves em `.env.local`.
+2. **Formspree** (sem backend) — veja o comentário em `Contato.tsx`: troque o
+   `fetch` pela URL do seu form do Formspree.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Estrutura
+
+```
+app/
+  layout.tsx          fontes, metadata, smooth scroll
+  page.tsx            monta as seções (one-page)
+  globals.css         design system (tokens @theme)
+  api/contato/route.ts  stub de envio do formulário
+components/
+  site/               Navbar, Hero, Manifesto, Servicos, ComoTrabalhamos,
+                      Lideranca, Equipe, Contato, Footer, ui (helpers)
+  motion/             Reveal (scroll reveal), SmoothScroll (Lenis)
+lib/site.ts           todo o conteúdo editável
+public/humaniq-logo.png
+```
+
+## Acessibilidade & performance
+
+- HTML semântico, foco visível, contraste AA, `lang="pt-BR"`.
+- `prefers-reduced-motion` desliga animações e o smooth scroll.
+- Sem cursor customizado, sem gradientes/blob/glassmorphism (anti-"IA slop").
