@@ -1,4 +1,5 @@
-import { fechamento } from "@/lib/site";
+import Image from "next/image";
+import { fechamento, whatsappCta } from "@/lib/site";
 import { Container } from "./ui";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -6,11 +7,12 @@ export default function FaixaFoto() {
   return (
     <section className="relative overflow-hidden">
       {/* Imagem do portfólio. TODO: confirmar uso/licença ou trocar por foto própria */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/foto-cuidar.jpg"
         alt="Equipe em ambiente de trabalho saudável"
-        className="absolute inset-0 h-full w-full object-cover"
+        fill
+        sizes="100vw"
+        className="object-cover"
       />
       <div className="absolute inset-0 bg-royal/85" />
 
@@ -19,8 +21,13 @@ export default function FaixaFoto() {
           <p className="font-display-black max-w-[20ch] text-[clamp(2rem,5vw,4rem)] leading-[1.02] text-white">
             {fechamento}
           </p>
-          <a href="#contato" className="btn btn-light mt-8">
-            Falar com a gente
+          <a
+            href={whatsappCta}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-light mt-8"
+          >
+            Falar no WhatsApp
           </a>
         </Reveal>
       </Container>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { numeros, site } from "@/lib/site";
+import { numeros, site, whatsappCta } from "@/lib/site";
 import { Container, Tag } from "./ui";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -52,15 +52,19 @@ export default function Hero() {
           transition={{ duration: 0.7, ease, delay: 0.5 }}
           className="mt-8 flex max-w-3xl flex-col gap-7 md:flex-row md:items-end md:justify-between"
         >
-          <p className="max-w-lg text-lg leading-relaxed text-white/80">
-            Consultoria especializada em gestão de pessoas, saúde mental e
-            bem-estar corporativo. Há mais de 18 anos construindo ambientes de
-            trabalho mais saudáveis, produtivos e humanos — em Manaus e no
-            Amazonas.
+          <p className="max-w-lg text-lg leading-relaxed text-white/85">
+            Consultoria que estrutura gestão de pessoas, liderança e saúde mental
+            para empresas do Amazonas. Há 18 anos transformando cultura e
+            bem-estar em produtividade, retenção e conformidade com a NR-1.
           </p>
           <div className="flex shrink-0 flex-wrap gap-3">
-            <a href="#contato" className="btn btn-light">
-              Falar com a gente
+            <a
+              href={whatsappCta}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-light"
+            >
+              Falar no WhatsApp
             </a>
             <a href="#servicos" className="btn btn-ghost">
               Ver serviços →
@@ -81,7 +85,7 @@ export default function Hero() {
                 {item.v}
               </div>
               <div className="mt-2 text-sm font-medium text-white">{item.k}</div>
-              <div className="mt-0.5 text-xs text-white/60">{item.sub}</div>
+              <div className="mt-0.5 text-xs text-white/75">{item.sub}</div>
             </div>
           ))}
         </motion.div>

@@ -26,16 +26,19 @@ export default function Clientes() {
           delay={0.05}
           className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5"
         >
-          {clientes.map((src, i) => (
+          {clientes.map((src) => (
             <RevealItem
               key={src}
               className="flex items-center justify-center rounded-[var(--radius-card)] border border-mist bg-white p-6"
             >
+              {/* alt="" = decorativo (nomes dos clientes a confirmar). TODO: mapear nomes reais */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
-                alt={`Cliente ${i + 1}`}
-                className="h-12 w-auto max-w-full object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="h-12 w-auto max-w-full object-contain opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
               />
             </RevealItem>
           ))}

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 export function Container({
   children,
@@ -36,10 +37,12 @@ export function Wordmark({
   invert?: boolean;
 }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src={invert ? "/logo-branca.png" : "/logo-azul.png"}
       alt="Humaniq"
+      width={270}
+      height={400}
+      priority
       className={`w-auto ${className}`}
     />
   );

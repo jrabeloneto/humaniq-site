@@ -12,7 +12,8 @@ export const site = {
 } as const;
 
 export const contato = {
-  endereco: "Manaus · Amazonas", // TODO: confirmar endereço completo
+  // TODO: confirmar endereço completo, se a empresa quiser exibir
+  endereco: "Manaus e todo o Amazonas — atendimento presencial e online.",
   // Portfólio: WhatsApp 92 98472-7761 · Tel 92 98606-5621
   telefoneLabel: "92 98472-7761",
   telefone2Label: "92 98606-5621",
@@ -22,6 +23,11 @@ export const contato = {
   instagramHandle: "@humaniqq",
   linkedinCeo: "https://www.linkedin.com/in/marcela-viana-970075ab/",
 } as const;
+
+// Link de WhatsApp já com mensagem pré-preenchida (conversão imediata).
+export const whatsappCta = `${contato.whatsapp}?text=${encodeURIComponent(
+  "Olá! Vim pelo site da Humaniq e gostaria de conversar sobre gestão de pessoas e saúde mental na minha empresa.",
+)}`;
 
 export const nav = [
   { label: "Sobre", href: "#sobre" },
@@ -50,8 +56,8 @@ export const valores = [
 
 export const numeros = [
   { v: "18+", k: "anos de experiência", sub: "em desenvolvimento humano" },
-  { v: "07", k: "frentes de atuação", sub: "da seleção à saúde mental" },
-  { v: "+31%", k: "de produtividade", sub: "times felizes rendem mais" },
+  { v: "7", k: "áreas de atuação", sub: "da seleção à saúde mental" },
+  { v: "+31%", k: "de produtividade", sub: "em times com bem-estar (Univ. de Oxford)" },
   { v: "ABRH-AM", k: "diretoria de impacto", sub: "liderança setorial" },
 ] as const;
 
@@ -64,6 +70,20 @@ export type Servico = {
 
 export const servicos: Servico[] = [
   {
+    nome: "Implantação da NR-1 — Riscos Psicossociais",
+    resumo:
+      "Sua empresa já é obrigada a gerenciar riscos psicossociais. Fazemos o diagnóstico, o plano de ação e o acompanhamento exigidos pela NR-1 — com respaldo técnico de psicólogas.",
+    itens: [
+      "Levantamento dos riscos psicossociais",
+      "Mapeamento de fatores de risco por setor",
+      "Pesquisa de clima organizacional e escuta ativa",
+      "Identificação de estresse, sobrecarga, assédio e conflitos",
+      "Plano de ação conforme as exigências da NR-1",
+      "Ações preventivas e corretivas + treinamento de líderes",
+      "Indicadores de acompanhamento e relatórios técnicos ao RH",
+    ],
+  },
+  {
     nome: "Recrutamento e Seleção Humanizado",
     resumo:
       "Um processo criterioso e humano, do desenho da vaga ao período de experiência.",
@@ -73,8 +93,7 @@ export const servicos: Servico[] = [
       "Triagem criteriosa de currículos",
       "Testes psicológicos e comportamentais",
       "Pré-entrevista estruturada",
-      "Parecer técnico e apoio à decisão",
-      "Envio dos melhores candidatos",
+      "Apresentação de candidatos finalistas com parecer técnico",
       "Acompanhamento do período de experiência",
     ],
   },
@@ -89,8 +108,7 @@ export const servicos: Servico[] = [
       "Inteligência emocional aplicada ao trabalho",
       "Liderança humanizada e consciente",
       "Gestão do tempo, prioridades e saúde emocional",
-      "Mentoria",
-      "Autoconhecimento (DISC e Pontos Fortes)",
+      "Mentoria e autoconhecimento (DISC e Pontos Fortes)",
     ],
   },
   {
@@ -130,7 +148,7 @@ export const servicos: Servico[] = [
     ],
   },
   {
-    nome: "Atendimento Psicológico Clínico para Empresas",
+    nome: "Apoio Psicológico ao Colaborador",
     resumo:
       "Atendimento psicológico individual, pontual e personalizado, conforme a necessidade da empresa.",
     itens: [
@@ -141,48 +159,35 @@ export const servicos: Servico[] = [
       "Psicólogas habilitadas — presencial ou online",
       "Relatórios institucionais sem quebra de sigilo",
     ],
-    nota: "Serviço complementar; não substitui planos de saúde ou terapias de longo prazo.",
-  },
-  {
-    nome: "Implantação NR-1 — Plano de Ação",
-    resumo:
-      "Diagnóstico e plano de ação de riscos psicossociais conforme a NR-1.",
-    itens: [
-      "Levantamento dos riscos psicossociais",
-      "Mapeamento de fatores de risco por setor",
-      "Pesquisa de clima organizacional e escuta ativa",
-      "Identificação de estresse, sobrecarga, assédio e conflitos",
-      "Plano de ação conforme as exigências da NR-1",
-      "Ações preventivas e corretivas + treinamento de líderes",
-      "Indicadores de acompanhamento e relatórios técnicos ao RH",
-    ],
+    nota: "Atendimento pontual e focado — complementar a planos de saúde e terapias contínuas.",
   },
 ];
 
 export const diferenciais = [
   {
+    titulo: "Base científica em psicologia",
+    texto:
+      "Métodos com lastro em Psicologia Positiva e ciência do comportamento — não achismo.",
+  },
+  {
     titulo: "Atuação ética e humanizada",
     texto: "Pessoas no centro de cada decisão, do diagnóstico à entrega.",
   },
   {
-    titulo: "Serviços personalizados",
-    texto: "Nada de receita de prateleira — tudo sob medida para a sua realidade.",
-  },
-  {
-    titulo: "Integração com o RH",
-    texto: "Trabalhamos lado a lado com a sua equipe, não por cima dela.",
+    titulo: "Liderança reconhecida no setor",
+    texto: "Direção de Impacto Social na ABRH-AM e atuação no Amazonas.",
   },
   {
     titulo: "Alinhamento com a legislação",
     texto: "Práticas em conformidade, incluindo a NR-1 e riscos psicossociais.",
   },
   {
-    titulo: "Boas práticas de mercado",
-    texto: "Métodos validados em cultura, clima e experiência do colaborador.",
+    titulo: "Integração com o RH",
+    texto: "Trabalhamos lado a lado com a sua equipe, não por cima dela.",
   },
   {
-    titulo: "Foco em pessoas e resultados",
-    texto: "Bem-estar e performance como faces da mesma estratégia.",
+    titulo: "Sob medida, sempre",
+    texto: "Nada de receita de prateleira — cada plano nasce da sua realidade.",
   },
 ] as const;
 
@@ -191,10 +196,10 @@ export const ceo = {
   cargo: "CEO da Humaniq · Psicóloga",
   foto: "/marcela.jpg", // TODO: confirmar uso/licença da foto do portfólio
   paragrafos: [
-    "Psicóloga e especialista em Psicologia Positiva, Marcela é Head de RH e Diretora de Impacto Social da ABRH-AM, com mais de 18 anos de experiência em desenvolvimento humano, gestão de pessoas, liderança e bem-estar corporativo.",
-    "Especialista em Cultura Organizacional, Feedback e Employee Experience, é certificada como Chief Happiness Officer (Diretora de Felicidade Corporativa) e associada à ABVQ (Associação Brasileira de Qualidade de Vida). À frente da Humaniq, une técnica e humanidade para transformar a gestão de pessoas em resultado concreto.",
+    "Marcela Viana fundou a Humaniq para provar que cuidar de pessoas e entregar resultado são a mesma coisa. Psicóloga com mais de 18 anos em desenvolvimento humano, lidera projetos de cultura, liderança e saúde mental em empresas do Amazonas.",
+    "Especialista em Psicologia Positiva, Cultura Organizacional, Feedback e Employee Experience, é Diretora de Impacto Social da ABRH-AM, certificada como Chief Happiness Officer e associada à ABVQ. Une técnica e humanidade para transformar a gestão de pessoas em resultado concreto.",
   ],
-  stat: "Trabalhadores felizes rendem até 31% a mais — e são mais inovadores.",
+  stat: "Colaboradores com bem-estar são até 31% mais produtivos — e mais inovadores. (Univ. de Oxford)",
   highlights: [
     "Especialista em Psicologia Positiva",
     "Diretora de Impacto Social · ABRH-AM",
@@ -207,11 +212,11 @@ export const ceo = {
 } as const;
 
 // Logos de clientes extraídos do portfólio (página CLIENTES).
-// TODO (cliente): confirmar lista e permissão de uso das marcas.
+// TODO (cliente): confirmar a lista, os NOMES e a permissão de uso das marcas.
 export const clientes = Array.from(
   { length: 13 },
   (_, i) => `/clientes/cliente-${String(i + 1).padStart(2, "0")}.png`,
 );
 
 export const fechamento =
-  "Estamos prontos para atender às necessidades da sua empresa — porque cuidar de pessoas é uma decisão estratégica.";
+  "Cuidar de pessoas é uma decisão estratégica. Vamos começar pela sua.";

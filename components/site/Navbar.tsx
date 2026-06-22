@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { nav, contato } from "@/lib/site";
 import { Container, Wordmark } from "./ui";
@@ -8,14 +8,47 @@ import { Container, Wordmark } from "./ui";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", onKey);
+
+    if (open) {
+      // foca o primeiro link do menu ao abrir
+      const focaveis = () =>
+        Array.from(
+          overlayRef.current?.querySelectorAll<HTMLElement>("a, button") ?? [],
+        );
+      window.setTimeout(() => focaveis()[0]?.focus(), 60);
+
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          setOpen(false);
+          btnRef.current?.focus();
+          return;
+        }
+        // focus trap: cicla Tab dentro do menu
+        if (e.key === "Tab") {
+          const els = focaveis();
+          if (els.length === 0) return;
+          const first = els[0];
+          const last = els[els.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      };
+      window.addEventListener("keydown", onKey);
+      return () => window.removeEventListener("keydown", onKey);
+    }
+
     return () => {
       document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
@@ -44,11 +77,12 @@ export default function Navbar() {
         </nav>
 
         <button
+          ref={btnRef}
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
-          className="flex h-10 w-10 items-center justify-center lg:hidden"
+          className="flex h-11 w-11 items-center justify-center lg:hidden"
         >
           <span className="relative flex h-3.5 w-6 flex-col justify-between">
             <span
@@ -73,6 +107,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            ref={overlayRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -102,7 +137,7 @@ export default function Navbar() {
               >
                 Falar com a gente
               </a>
-              <a href={contato.whatsapp} className="text-center text-sm text-white/70">
+              <a href={contato.whatsapp} className="text-center text-sm text-white/85">
                 {contato.telefoneLabel}
               </a>
             </div>

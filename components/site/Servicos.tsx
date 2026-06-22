@@ -38,6 +38,7 @@ export default function Servicos() {
                   type="button"
                   onClick={() => setOpen(aberto ? null : i)}
                   aria-expanded={aberto}
+                  aria-controls={`servico-${i}`}
                   className="flex w-full items-center gap-5 px-6 py-5 text-left md:px-8 md:py-6"
                 >
                   <span className="flex-1">
@@ -68,6 +69,9 @@ export default function Servicos() {
                 <AnimatePresence initial={false}>
                   {aberto && (
                     <motion.div
+                      id={`servico-${i}`}
+                      role="region"
+                      aria-label={s.nome}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
