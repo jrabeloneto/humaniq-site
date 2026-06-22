@@ -67,8 +67,10 @@ const jsonLd = {
   areaServed: "Amazonas, Brasil",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Rua Rio Içá, 191, Sala 304 — Nossa Senhora das Graças",
     addressLocality: "Manaus",
     addressRegion: "AM",
+    postalCode: "69053-100",
     addressCountry: "BR",
   },
   founder: { "@type": "Person", name: "Marcela Viana", jobTitle: "CEO · Psicóloga" },

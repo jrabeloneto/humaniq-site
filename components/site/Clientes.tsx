@@ -1,4 +1,4 @@
-import { clientes } from "@/lib/site";
+import { clientes, depoimentos } from "@/lib/site";
 import { Container, Tag } from "./ui";
 import { Reveal, RevealItem } from "@/components/motion/Reveal";
 
@@ -21,10 +21,31 @@ export default function Clientes() {
           </div>
         </Reveal>
 
+        {/* Depoimentos */}
+        <Reveal stagger delay={0.05} className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {depoimentos.map((d) => (
+            <RevealItem
+              key={d.nome}
+              className="flex flex-col rounded-[var(--radius-card)] border border-mist bg-white p-7 md:p-8"
+            >
+              <p className="font-display text-[1.3rem] leading-[1.25] text-ink">
+                “{d.texto}”
+              </p>
+              <p className="mt-6 text-sm font-medium text-ink">
+                {d.nome}
+                <span className="font-normal text-ink/55">
+                  {" "}
+                  · {d.cargo}, {d.empresa}
+                </span>
+              </p>
+            </RevealItem>
+          ))}
+        </Reveal>
+
         <Reveal
           stagger
           delay={0.05}
-          className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5"
+          className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5"
         >
           {clientes.map((src) => (
             <RevealItem

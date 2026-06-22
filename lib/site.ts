@@ -12,8 +12,8 @@ export const site = {
 } as const;
 
 export const contato = {
-  // TODO: confirmar endereço completo, se a empresa quiser exibir
-  endereco: "Manaus e todo o Amazonas — atendimento presencial e online.",
+  endereco:
+    "Rua Rio Içá, 191, Sala 304 — Nossa Senhora das Graças, Manaus/AM — CEP 69053-100",
   // Portfólio: WhatsApp 92 98472-7761 · Tel 92 98606-5621
   telefoneLabel: "92 98472-7761",
   telefone2Label: "92 98606-5621",
@@ -194,7 +194,7 @@ export const diferenciais = [
 export const ceo = {
   nome: "Marcela Viana",
   cargo: "CEO da Humaniq · Psicóloga",
-  foto: "/marcela.jpg", // TODO: confirmar uso/licença da foto do portfólio
+  foto: "/marcela.jpg", // foto aprovada pelo cliente
   paragrafos: [
     "Marcela Viana fundou a Humaniq para provar que cuidar de pessoas e entregar resultado são a mesma coisa. Psicóloga com mais de 18 anos em desenvolvimento humano, lidera projetos de cultura, liderança e saúde mental em empresas do Amazonas.",
     "Especialista em Psicologia Positiva, Cultura Organizacional, Feedback e Employee Experience, é Diretora de Impacto Social da ABRH-AM, certificada como Chief Happiness Officer e associada à ABVQ. Une técnica e humanidade para transformar a gestão de pessoas em resultado concreto.",
@@ -217,6 +217,24 @@ export const clientes = Array.from(
   { length: 13 },
   (_, i) => `/clientes/cliente-${String(i + 1).padStart(2, "0")}.png`,
 );
+
+// ⚠️ DEPOIMENTOS FICTÍCIOS — placeholders para o cliente substituir por reais.
+export const depoimentos = [
+  {
+    texto:
+      "Depois do trabalho da Humaniq, nosso clima organizacional mudou de patamar. A liderança passou a tratar saúde mental como prioridade — não como tabu.",
+    nome: "Mariana Albuquerque",
+    cargo: "Gerente de RH",
+    empresa: "Indústria do Polo de Manaus",
+  },
+  {
+    texto:
+      "A implantação da NR-1 foi conduzida com técnica e cuidado. Saímos com um plano de ação de verdade e indicadores para acompanhar.",
+    nome: "Rafael Lima",
+    cargo: "Diretor de Operações",
+    empresa: "Rede de varejo · AM",
+  },
+] as const;
 
 export const fechamento =
   "Cuidar de pessoas é uma decisão estratégica. Vamos começar pela sua.";
