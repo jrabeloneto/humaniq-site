@@ -206,5 +206,12 @@ export const ceo = {
   ],
 } as const;
 
+// Logos de clientes extraídos do portfólio (página CLIENTES).
+// TODO (cliente): confirmar lista e permissão de uso das marcas.
+export const clientes = Array.from(
+  { length: 13 },
+  (_, i) => `/clientes/cliente-${String(i + 1).padStart(2, "0")}.png`,
+);
+
 export const fechamento =
   "Estamos prontos para atender às necessidades da sua empresa — porque cuidar de pessoas é uma decisão estratégica.";
