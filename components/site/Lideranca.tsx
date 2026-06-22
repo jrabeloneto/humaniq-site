@@ -1,8 +1,16 @@
+"use client";
+
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { ceo, contato } from "@/lib/site";
 import { Container, Tag } from "./ui";
 import { Reveal } from "@/components/motion/Reveal";
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
 export default function Lideranca() {
+  const [mais, setMais] = useState(false);
+
   return (
     <section id="lideranca" className="py-20 md:py-28">
       <Container>
@@ -35,31 +43,53 @@ export default function Lideranca() {
               </p>
             </div>
 
-            <div className="mt-7 space-y-4 text-[1.02rem] leading-relaxed text-ink/80">
-              {ceo.paragrafos.map((p) => (
-                <p key={p.slice(0, 24)}>{p}</p>
-              ))}
-            </div>
+            <p className="mt-7 text-[1.02rem] leading-relaxed text-ink/80">
+              {ceo.paragrafos[0]}
+            </p>
 
-            <ul className="mt-7 flex flex-wrap gap-2">
-              {ceo.highlights.map((h) => (
-                <li
-                  key={h}
-                  className="rounded-full bg-mist px-4 py-2 text-sm font-medium text-ink"
+            <AnimatePresence initial={false}>
+              {mais && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease }}
+                  className="overflow-hidden"
                 >
-                  {h}
-                </li>
-              ))}
-            </ul>
+                  <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/80">
+                    {ceo.paragrafos[1]}
+                  </p>
+                  <ul className="mt-6 flex flex-wrap gap-2">
+                    {ceo.highlights.map((h) => (
+                      <li
+                        key={h}
+                        className="rounded-full bg-mist px-4 py-2 text-sm font-medium text-ink"
+                      >
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-            <a
-              href={contato.linkedinCeo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary mt-8"
-            >
-              Perfil no LinkedIn ↗
-            </a>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setMais((v) => !v)}
+                className="btn btn-primary"
+              >
+                {mais ? "Ver menos" : "Ver trajetória completa"}
+              </button>
+              <a
+                href={contato.linkedinCeo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[0.95rem] font-medium text-ink/70 transition-colors hover:text-ink"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
           </Reveal>
         </div>
       </Container>

@@ -1,8 +1,19 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "motion/react";
 import { quemSomos, missao, visao, valores } from "@/lib/site";
 import { Container, Tag } from "./ui";
-import { Reveal, RevealItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
+
+const abas = [
+  { id: "missao", label: "Missão", texto: missao },
+  { id: "visao", label: "Visão", texto: visao },
+] as const;
 
 export default function Manifesto() {
+  const [aba, setAba] = useState(0);
+
   return (
     <section id="sobre" className="py-20 md:py-28">
       <Container>
@@ -28,20 +39,31 @@ export default function Manifesto() {
           </Reveal>
         </div>
 
-        {/* Missão / Visão */}
-        <Reveal stagger delay={0.1} className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
-          <RevealItem className="rounded-[var(--radius-card)] bg-royal p-8 text-white md:p-10">
-            <Tag tone="light">Missão</Tag>
-            <p className="font-display mt-5 text-[clamp(1.4rem,2.2vw,1.9rem)] leading-[1.15]">
-              {missao}
-            </p>
-          </RevealItem>
-          <RevealItem className="rounded-[var(--radius-card)] bg-mist p-8 md:p-10">
-            <Tag>Visão</Tag>
-            <p className="font-display mt-5 text-[clamp(1.4rem,2.2vw,1.9rem)] leading-[1.15] text-ink">
-              {visao}
-            </p>
-          </RevealItem>
+        {/* Missão / Visão em abas — só uma por vez */}
+        <Reveal delay={0.1} className="mt-12 rounded-[var(--radius-card)] bg-royal p-8 text-white md:p-12">
+          <div className="flex gap-2">
+            {abas.map((a, i) => (
+              <button
+                key={a.id}
+                type="button"
+                onClick={() => setAba(i)}
+                className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
+                  aba === i ? "bg-white text-royal" : "bg-white/10 text-white/70 hover:bg-white/20"
+                }`}
+              >
+                {a.label}
+              </button>
+            ))}
+          </div>
+          <motion.p
+            key={aba}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display mt-7 max-w-3xl text-[clamp(1.5rem,2.6vw,2.3rem)] leading-[1.18]"
+          >
+            {abas[aba].texto}
+          </motion.p>
         </Reveal>
       </Container>
     </section>
