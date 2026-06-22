@@ -27,9 +27,9 @@ export function Tag({
   return <span className={`kicker ${text}`}>{children}</span>;
 }
 
-/** Logo oficial da Humaniq (azul no claro, branco no escuro). */
+/** Logo oficial da Humaniq (azul no claro, branca no escuro). */
 export function Wordmark({
-  className = "",
+  className = "h-11",
   invert = false,
 }: {
   className?: string;
@@ -38,9 +38,9 @@ export function Wordmark({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={invert ? "/humaniq-logo-white.png" : "/humaniq-logo.png"}
+      src={invert ? "/logo-branca.png" : "/logo-azul.png"}
       alt="Humaniq"
-      className={`h-10 w-auto ${className}`}
+      className={`w-auto ${className}`}
     />
   );
 }

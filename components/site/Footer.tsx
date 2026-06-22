@@ -8,7 +8,7 @@ export default function Footer() {
       <Container className="py-16">
         <div className="flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <Wordmark invert />
+            <Wordmark invert className="h-16" />
             <p className="mt-5 text-sm leading-relaxed text-white/55">
               Consultoria em gestão de pessoas, saúde mental e desenvolvimento
               humano. Manaus · Amazonas — com técnica e humanidade.

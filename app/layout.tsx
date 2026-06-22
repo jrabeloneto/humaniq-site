@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     title: "Humaniq · A inteligência de cuidar de pessoas",
     description:
       "Consultoria de RH em Manaus. Gestão de pessoas, liderança e cultura com técnica e humanidade.",
-    // TODO: trocar pela OG image oficial da marca (1200x630)
-    images: ["/humaniq-logo.png"],
+    // TODO: idealmente uma OG image 1200x630 dedicada; por ora, o badge da marca
+    images: ["/logo-badge.png"],
   },
-  icons: { icon: "/humaniq-logo.png" },
+  icons: { icon: "/logo-badge.png" },
 };
 
 export default function RootLayout({
