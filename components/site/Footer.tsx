@@ -10,8 +10,8 @@ export default function Footer() {
           <div className="max-w-sm">
             <Wordmark invert />
             <p className="mt-5 text-sm leading-relaxed text-white/55">
-              Consultoria de RH em Manaus. Gestão de pessoas, liderança e cultura
-              — com técnica e humanidade.
+              Consultoria em gestão de pessoas, saúde mental e desenvolvimento
+              humano. Manaus · Amazonas — com técnica e humanidade.
             </p>
             <a href="#contato" className="btn btn-primary mt-7">
               Falar com a gente

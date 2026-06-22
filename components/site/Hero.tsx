@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { numeros, sobre } from "@/lib/site";
+import { numeros, site } from "@/lib/site";
 import { Container, Tag } from "./ui";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -28,7 +28,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease }}
         >
-          <Tag tone="light">Consultoria de RH · Manaus, Amazonas</Tag>
+          <Tag tone="light">{site.tagline}</Tag>
         </motion.div>
 
         <h1 className="font-display-black mt-6 max-w-[18ch] text-[clamp(2.4rem,6vw,5.2rem)] text-white">
@@ -53,8 +53,10 @@ export default function Hero() {
           className="mt-8 flex max-w-3xl flex-col gap-7 md:flex-row md:items-end md:justify-between"
         >
           <p className="max-w-lg text-lg leading-relaxed text-white/80">
-            {sobre.standfirst} Há 18 anos cuidando de gestão de pessoas, liderança
-            e cultura em Manaus e no Amazonas.
+            Consultoria especializada em gestão de pessoas, saúde mental e
+            bem-estar corporativo. Há mais de 18 anos construindo ambientes de
+            trabalho mais saudáveis, produtivos e humanos — em Manaus e no
+            Amazonas.
           </p>
           <div className="flex shrink-0 flex-wrap gap-3">
             <a href="#contato" className="btn btn-light">

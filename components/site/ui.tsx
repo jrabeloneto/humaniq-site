@@ -27,7 +27,7 @@ export function Tag({
   return <span className={`kicker ${text}`}>{children}</span>;
 }
 
-/** Marca tipográfica — "humaniq" forte, sem símbolos. */
+/** Logo oficial da Humaniq (azul no claro, branco no escuro). */
 export function Wordmark({
   className = "",
   invert = false,
@@ -36,12 +36,11 @@ export function Wordmark({
   invert?: boolean;
 }) {
   return (
-    <span
-      className={`font-display-black text-[1.5rem] leading-none ${
-        invert ? "text-white" : "text-ink"
-      } ${className}`}
-    >
-      humaniq
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={invert ? "/humaniq-logo-white.png" : "/humaniq-logo.png"}
+      alt="Humaniq"
+      className={`h-10 w-auto ${className}`}
+    />
   );
 }

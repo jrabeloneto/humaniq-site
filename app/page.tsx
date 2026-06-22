@@ -2,9 +2,9 @@ import Navbar from "@/components/site/Navbar";
 import Hero from "@/components/site/Hero";
 import Manifesto from "@/components/site/Manifesto";
 import Servicos from "@/components/site/Servicos";
-import ComoTrabalhamos from "@/components/site/ComoTrabalhamos";
+import Diferenciais from "@/components/site/Diferenciais";
 import Lideranca from "@/components/site/Lideranca";
-import Equipe from "@/components/site/Equipe";
+import FaixaFoto from "@/components/site/FaixaFoto";
 import Contato from "@/components/site/Contato";
 import Footer from "@/components/site/Footer";
 
@@ -16,14 +16,9 @@ export default function Home() {
         <Hero />
         <Manifesto />
         <Servicos />
-        <ComoTrabalhamos />
+        <Diferenciais />
         <Lideranca />
-        <Equipe />
-        {/*
-          07 — Conteúdo / Blog: omitido por ora (não há artigos reais).
-          Quando houver conteúdo, criar componente <Conteudo /> com título
-          "Ideias e prática de RH" e 3 chamadas reais (título + data).
-        */}
+        <FaixaFoto />
         <Contato />
       </main>
       <Footer />

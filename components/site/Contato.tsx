@@ -58,11 +58,12 @@ export default function Contato() {
           {/* Coordenadas */}
           <Reveal delay={0.05} className="lg:col-span-5">
             <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-1">
-              <Coord k="Telefone · WhatsApp" v={contato.telefoneLabel} href={contato.whatsapp} />
+              <Coord k="WhatsApp" v={contato.telefoneLabel} href={contato.whatsapp} />
+              <Coord k="Telefone" v={contato.telefone2Label} href={`tel:+55${contato.telefone2Label.replace(/\D/g, "")}`} />
               <Coord k="E-mail" v={contato.email} href={`mailto:${contato.email}`} />
               <Coord k="Instagram" v={contato.instagramHandle} href={contato.instagram} />
               <div>
-                <span className="kicker text-white/45">Endereço</span>
+                <span className="kicker text-white/45">Onde estamos</span>
                 <p className="mt-2 max-w-xs leading-relaxed text-white">{contato.endereco}</p>
               </div>
             </div>

@@ -1,22 +1,23 @@
 /*
   ── Conteúdo do site Humaniq ───────────────────────────────────────────
-  TODO (cliente): edite textos, nomes e contatos AQUI. É o único lugar.
-  Dados conforme a "verdade de campo" fornecida pela Humaniq.
+  Fonte: portfólio oficial da empresa (Humaniq-13.pdf). Edite tudo AQUI.
 */
 
 export const site = {
   nome: "Humaniq",
-  nomeCompleto: "Humaniq Consultoria de RH",
+  nomeCompleto: "Humaniq Consultoria",
+  tagline: "Gestão de Pessoas, Saúde Mental e Desenvolvimento Humano",
   local: "Manaus · Amazonas",
   dominio: "humaniq.net.br",
 } as const;
 
 export const contato = {
-  endereco:
-    "Rua Rio Içá, 191, Sala 304 — Nossa Senhora das Graças — Manaus/AM — CEP 69053-100",
-  telefoneLabel: "+55 92 98606-5621",
-  whatsapp: "https://wa.me/5592986065621",
-  email: "atendimento@humaniq.net.br",
+  endereco: "Manaus · Amazonas", // TODO: confirmar endereço completo
+  // Portfólio: WhatsApp 92 98472-7761 · Tel 92 98606-5621
+  telefoneLabel: "92 98472-7761",
+  telefone2Label: "92 98606-5621",
+  whatsapp: "https://wa.me/5592984727761",
+  email: "marcela.viana@humaniq.net.br",
   instagram: "https://www.instagram.com/humaniqq/",
   instagramHandle: "@humaniqq",
   linkedinCeo: "https://www.linkedin.com/in/marcela-viana-970075ab/",
@@ -25,158 +26,185 @@ export const contato = {
 export const nav = [
   { label: "Sobre", href: "#sobre" },
   { label: "Serviços", href: "#servicos" },
-  { label: "Método", href: "#metodo" },
+  { label: "Diferenciais", href: "#diferenciais" },
   { label: "Liderança", href: "#lideranca" },
-  { label: "Equipe", href: "#equipe" },
+  { label: "Contato", href: "#contato" },
 ] as const;
 
-export const sobre = {
-  standfirst:
-    "Uma consultoria de RH que trata gente como a causa do resultado — não como o custo dele.",
-  paragrafos: [
-    "A Humaniq nasceu de uma convicção simples: empresas não crescem apesar das pessoas — crescem por causa delas. Há mais de 18 anos, unimos método de RH a uma escuta genuína para alinhar estratégia de negócio e gestão de gente.",
-    "Aqui, diagnóstico, liderança e cultura andam juntos. Não entregamos um relatório bonito e vamos embora: ficamos até a mudança virar rotina, com ética e impacto social no centro de cada decisão.",
-    "Atendemos empresas de médio e grande porte em Manaus e no Amazonas que querem estruturar a área de pessoas com consistência — e fazer isso sem perder o lado humano no caminho.",
-  ],
-  nota: "Sediada em Manaus/AM, com atuação em todo o Amazonas.",
-} as const;
+export const quemSomos =
+  "A Humaniq é uma consultoria especializada em gestão de pessoas, saúde mental, bem-estar corporativo e desenvolvimento humano. Atuamos de forma estratégica, ética e humanizada, apoiando empresas na construção de ambientes de trabalho mais saudáveis, produtivos e sustentáveis.";
+
+export const missao =
+  "Conectar propósito, performance e bem-estar nas organizações, promovendo o desenvolvimento humano como diferencial competitivo.";
+
+export const visao =
+  "Ser referência em consultoria organizacional, com atendimento personalizado e soluções que gerem resultados mensuráveis — valorizando o potencial humano como base de todo crescimento.";
+
+export const valores = [
+  "Humanização",
+  "Flexibilidade",
+  "Resultados",
+  "Excelência",
+  "Ética",
+] as const;
 
 export const numeros = [
-  { v: "18+", k: "anos de experiência", sub: "em médio e grande porte" },
-  { v: "06", k: "frentes de atuação", sub: "do diagnóstico à retenção" },
+  { v: "18+", k: "anos de experiência", sub: "em desenvolvimento humano" },
+  { v: "07", k: "frentes de atuação", sub: "da seleção à saúde mental" },
+  { v: "+31%", k: "de produtividade", sub: "times felizes rendem mais" },
   { v: "ABRH-AM", k: "diretoria de impacto", sub: "liderança setorial" },
-  { v: "100%", k: "feito sob medida", sub: "sem receita de prateleira" },
 ] as const;
 
-export const pilares = [
-  {
-    titulo: "Escuta ativa",
-    texto:
-      "Antes de propor, ouvimos. Diagnóstico de verdade começa pela escuta de quem vive a operação.",
-  },
-  {
-    titulo: "Inclusão e diversidade na raiz",
-    texto:
-      "Não como pauta de fachada — como critério estrutural de como times são formados e liderados.",
-  },
-  {
-    titulo: "Decisões com impacto (ESG)",
-    texto:
-      "Ética e impacto social no centro. Gente bem cuidada é também responsabilidade da empresa.",
-  },
-] as const;
+export type Servico = {
+  nome: string;
+  resumo: string;
+  itens: string[];
+  nota?: string;
+};
 
-export const servicos = [
+export const servicos: Servico[] = [
   {
-    n: "01",
-    nome: "Alinhamento Estratégico",
-    desc: "Conectamos os objetivos do negócio à gestão de pessoas.",
-    leva: "Estratégia de gente que fala a língua do resultado.",
+    nome: "Recrutamento e Seleção Humanizado",
+    resumo:
+      "Um processo criterioso e humano, do desenho da vaga ao período de experiência.",
+    itens: [
+      "Reunião para análise da vaga",
+      "Divulgação estratégica de vagas",
+      "Triagem criteriosa de currículos",
+      "Testes psicológicos e comportamentais",
+      "Pré-entrevista estruturada",
+      "Parecer técnico e apoio à decisão",
+      "Envio dos melhores candidatos",
+      "Acompanhamento do período de experiência",
+    ],
   },
   {
-    n: "02",
-    nome: "Desenvolvimento Organizacional",
-    desc: "Cultura corporativa e engajamento como sistema, não como evento.",
-    leva: "Uma cultura que sustenta o crescimento.",
+    nome: "Desenvolvimento de Pessoas e Lideranças",
+    resumo:
+      "Treinamentos e mentoria para formar líderes conscientes e times saudáveis.",
+    itens: [
+      "Treinamentos corporativos personalizados",
+      "Desenvolvimento de líderes e gestores",
+      "Comunicação assertiva e gestão de conflitos",
+      "Inteligência emocional aplicada ao trabalho",
+      "Liderança humanizada e consciente",
+      "Gestão do tempo, prioridades e saúde emocional",
+      "Mentoria",
+      "Autoconhecimento (DISC e Pontos Fortes)",
+    ],
   },
   {
-    n: "03",
-    nome: "Gestão de Talentos",
-    desc: "Atrair, desenvolver e reter os profissionais certos.",
-    leva: "Menos rotatividade, mais protagonismo.",
+    nome: "Consultoria em RH e Processos Administrativos",
+    resumo:
+      "Estruturação do setor de RH e dos processos administrativos da empresa.",
+    itens: [
+      "Estruturação e organização do setor de RH",
+      "Apoio à implantação de processos administrativos",
+      "Facilities e manutenção predial",
+      "Fluxos internos e rotinas administrativas",
+      "Apoio estratégico à gestão de pessoas",
+    ],
   },
   {
-    n: "04",
-    nome: "Análise Diagnóstica",
-    desc: "Avaliamos a estrutura organizacional para achar onde está a oportunidade.",
-    leva: "Clareza sobre o que mudar primeiro.",
+    nome: "Mediação de Conflitos e Clima Organizacional",
+    resumo:
+      "Escuta qualificada e diagnóstico de clima para relações de trabalho mais saudáveis.",
+    itens: [
+      "Mediação de conflitos interpessoais e de equipe",
+      "Escuta qualificada e acolhimento organizacional",
+      "Diagnóstico de clima organizacional",
+      "Intervenções para melhoria das relações de trabalho",
+    ],
   },
   {
-    n: "05",
-    nome: "Desenvolvimento de Lideranças",
-    desc: "Capacitação de gestores e fortalecimento dos times.",
-    leva: "Líderes preparados para a escuta ativa.",
+    nome: "Palestras, Workshops e Ações In Company",
+    resumo:
+      "Conteúdos práticos sobre cultura, liderança e saúde mental, adaptados à sua realidade.",
+    itens: [
+      "Cultura organizacional e liderança: prevenção ao assédio",
+      "Saúde mental e bem-estar",
+      "Autocuidado para quem cuida de pessoas",
+      "Burnout: prevenção e conscientização",
+      "Felicidade corporativa",
+      "Inteligência emocional",
+    ],
   },
   {
-    n: "06",
-    nome: "Engajamento e Retenção",
-    desc: "Satisfação e permanência dos colaboradores ao longo do tempo.",
-    leva: "Gente que escolhe ficar.",
+    nome: "Atendimento Psicológico Clínico para Empresas",
+    resumo:
+      "Atendimento psicológico individual, pontual e personalizado, conforme a necessidade da empresa.",
+    itens: [
+      "Sofrimento psíquico relacionado ou não ao trabalho",
+      "Crises emocionais pontuais",
+      "Ansiedade, estresse e esgotamento emocional",
+      "Dificuldades de adaptação, relacionamento ou desempenho",
+      "Psicólogas habilitadas — presencial ou online",
+      "Relatórios institucionais sem quebra de sigilo",
+    ],
+    nota: "Serviço complementar; não substitui planos de saúde ou terapias de longo prazo.",
   },
-] as const;
+  {
+    nome: "Implantação NR-1 — Plano de Ação",
+    resumo:
+      "Diagnóstico e plano de ação de riscos psicossociais conforme a NR-1.",
+    itens: [
+      "Levantamento dos riscos psicossociais",
+      "Mapeamento de fatores de risco por setor",
+      "Pesquisa de clima organizacional e escuta ativa",
+      "Identificação de estresse, sobrecarga, assédio e conflitos",
+      "Plano de ação conforme as exigências da NR-1",
+      "Ações preventivas e corretivas + treinamento de líderes",
+      "Indicadores de acompanhamento e relatórios técnicos ao RH",
+    ],
+  },
+];
 
-export const metodo = [
+export const diferenciais = [
   {
-    n: "01",
-    titulo: "Diagnóstico",
-    texto: "Entendemos a estrutura, a cultura e os gargalos reais.",
+    titulo: "Atuação ética e humanizada",
+    texto: "Pessoas no centro de cada decisão, do diagnóstico à entrega.",
   },
   {
-    n: "02",
-    titulo: "Desenho",
-    texto: "Montamos um plano sob medida, sem receita de prateleira.",
+    titulo: "Serviços personalizados",
+    texto: "Nada de receita de prateleira — tudo sob medida para a sua realidade.",
   },
   {
-    n: "03",
-    titulo: "Implementação",
-    texto: "Colocamos de pé junto com a sua liderança.",
+    titulo: "Integração com o RH",
+    texto: "Trabalhamos lado a lado com a sua equipe, não por cima dela.",
   },
   {
-    n: "04",
-    titulo: "Acompanhamento",
-    texto: "Medimos, ajustamos e sustentamos o resultado.",
+    titulo: "Alinhamento com a legislação",
+    texto: "Práticas em conformidade, incluindo a NR-1 e riscos psicossociais.",
+  },
+  {
+    titulo: "Boas práticas de mercado",
+    texto: "Métodos validados em cultura, clima e experiência do colaborador.",
+  },
+  {
+    titulo: "Foco em pessoas e resultados",
+    texto: "Bem-estar e performance como faces da mesma estratégia.",
   },
 ] as const;
 
 export const ceo = {
   nome: "Marcela Viana",
-  cargo: "CEO & Head de RH",
-  // TODO: substituir por foto oficial da Marcela (proporção 4:5).
-  foto: null as string | null,
-  quote:
-    "Gente bem cuidada não é gasto. É a decisão estratégica mais subestimada das empresas.",
+  cargo: "CEO da Humaniq · Psicóloga",
+  foto: "/marcela.jpg", // TODO: confirmar uso/licença da foto do portfólio
   paragrafos: [
-    "Mais de 18 anos liderando RH em empresas de médio e grande porte. Diretora de Impacto Social da ABRH-AM, Marcela construiu uma carreira defendendo um RH com inclusão e diversidade na raiz — e não como pauta de vitrine.",
-    "À frente da Humaniq, transforma desafios de gestão de pessoas em resultado concreto: líderes preparados para a escuta ativa, times mais diversos e decisões tomadas com impacto social no centro. Técnica e humanidade, na mesma mesa.",
+    "Psicóloga e especialista em Psicologia Positiva, Marcela é Head de RH e Diretora de Impacto Social da ABRH-AM, com mais de 18 anos de experiência em desenvolvimento humano, gestão de pessoas, liderança e bem-estar corporativo.",
+    "Especialista em Cultura Organizacional, Feedback e Employee Experience, é certificada como Chief Happiness Officer (Diretora de Felicidade Corporativa) e associada à ABVQ (Associação Brasileira de Qualidade de Vida). À frente da Humaniq, une técnica e humanidade para transformar a gestão de pessoas em resultado concreto.",
   ],
-  credenciais: [
-    { k: "Cargo", v: "CEO & Head de RH, Humaniq" },
-    { k: "Associação", v: "Diretora de Impacto Social · ABRH-AM" },
-    { k: "Formação", v: "Faculdade Martha Falcão (FMF)" },
-    { k: "Experiência", v: "18+ anos em médio e grande porte" },
-  ],
-  bandeiras: [
-    "ESG",
-    "Inclusão e diversidade na raiz",
-    "Protagonismo feminino",
-    "Escuta ativa",
-    "Valorização do público 50+",
+  stat: "Trabalhadores felizes rendem até 31% a mais — e são mais inovadores.",
+  highlights: [
+    "Especialista em Psicologia Positiva",
+    "Diretora de Impacto Social · ABRH-AM",
+    "Chief Happiness Officer (Felicidade Corporativa)",
+    "Avaliadora PQA · Associada à ABVQ",
+    "Coautora de 5 livros",
+    "Host do podcast “Trilha de Sucesso”",
+    "Criadora da palestra-show “Prontas para Decolar”",
   ],
 } as const;
 
-export type Pessoa = {
-  nome: string;
-  cargo: string;
-  bio: string; // 1 linha neutra OU "[a confirmar]"
-  foto?: string | null; // TODO: foto oficial quando houver
-};
-
-export const equipe: Pessoa[] = [
-  {
-    nome: "Marcela Viana",
-    cargo: "CEO / Head de RH",
-    bio: "Lidera a estratégia de gente e o impacto social da Humaniq.",
-  },
-  {
-    nome: "Antonio San",
-    cargo: "Gerente Financeiro",
-    bio: "[bio a confirmar]",
-  },
-  {
-    nome: "Alexandre Wenlund",
-    cargo: "Consultor Externo",
-    bio: "[bio a confirmar]",
-  },
-  { nome: "João Victor", cargo: "Trainee", bio: "[bio a confirmar]" },
-  { nome: "Vittoria San", cargo: "Marketing", bio: "[bio a confirmar]" },
-];
+export const fechamento =
+  "Estamos prontos para atender às necessidades da sua empresa — porque cuidar de pessoas é uma decisão estratégica.";
