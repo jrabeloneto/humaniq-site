@@ -4,6 +4,7 @@ import Manifesto from "@/components/site/Manifesto";
 import Servicos from "@/components/site/Servicos";
 import Diferenciais from "@/components/site/Diferenciais";
 import Lideranca from "@/components/site/Lideranca";
+import Midia from "@/components/site/Midia";
 import Clientes from "@/components/site/Clientes";
 import FaixaFoto from "@/components/site/FaixaFoto";
 import Contato from "@/components/site/Contato";
@@ -19,6 +20,7 @@ export default function Home() {
         <Servicos />
         <Diferenciais />
         <Lideranca />
+        <Midia />
         <Clientes />
         <FaixaFoto />
         <Contato />

@@ -34,6 +34,7 @@ export const nav = [
   { label: "Serviços", href: "#servicos" },
   { label: "Diferenciais", href: "#diferenciais" },
   { label: "Liderança", href: "#lideranca" },
+  { label: "Mídia", href: "#midia" },
   { label: "Contato", href: "#contato" },
 ] as const;
 
@@ -214,9 +215,15 @@ export const ceo = {
 // Logos de clientes extraídos do portfólio (página CLIENTES).
 // TODO (cliente): confirmar a lista, os NOMES e a permissão de uso das marcas.
 export const clientes = Array.from(
-  { length: 13 },
+  { length: 17 },
   (_, i) => `/clientes/cliente-${String(i + 1).padStart(2, "0")}.png`,
 );
+
+// Galeria de mídia / bastidores. TODO (cliente): adicionar as fotos em /public/midia
+// e listar aqui ({ src, alt }). Enquanto vazio, a seção mostra placeholders elegantes.
+export const midia: { src: string; alt: string }[] = [
+  // { src: "/midia/1.jpg", alt: "Palestra da Humaniq" },
+];
 
 // ⚠️ DEPOIMENTOS FICTÍCIOS — placeholders para o cliente substituir por reais.
 export const depoimentos = [
