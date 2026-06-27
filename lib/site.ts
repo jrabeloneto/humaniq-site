@@ -57,7 +57,7 @@ export const valores = [
 
 export const numeros = [
   { v: "18+", k: "anos de experiência", sub: "em desenvolvimento humano" },
-  { v: "7", k: "áreas de atuação", sub: "da seleção à saúde mental" },
+  { v: "8", k: "áreas de atuação", sub: "da seleção à saúde mental" },
   { v: "+31%", k: "de produtividade", sub: "em times com bem-estar (Univ. de Oxford)" },
   { v: "ABRH-AM", k: "diretoria de impacto", sub: "liderança setorial" },
 ] as const;
@@ -96,6 +96,19 @@ export const servicos: Servico[] = [
       "Pré-entrevista estruturada",
       "Apresentação de candidatos finalistas com parecer técnico",
       "Acompanhamento do período de experiência",
+    ],
+  },
+  {
+    nome: "Mão de Obra Temporária",
+    resumo:
+      "Profissionais temporários para picos de demanda, projetos e coberturas — com a mesma seleção criteriosa da Humaniq e em conformidade com a lei.",
+    itens: [
+      "Atendimento a demandas sazonais e picos de produção",
+      "Cobertura de férias, licenças e afastamentos",
+      "Recrutamento ágil de profissionais qualificados",
+      "Gestão de documentação e do contrato temporário",
+      "Conformidade com a legislação de trabalho temporário",
+      "Acompanhamento durante todo o período de alocação",
     ],
   },
   {

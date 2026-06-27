@@ -19,7 +19,7 @@ export default function Servicos() {
             <div>
               <Tag>Serviços</Tag>
               <h2 className="font-display mt-6 max-w-[16ch] text-[clamp(2.1rem,4.4vw,3.6rem)] text-ink">
-                Sete frentes, um só cuidado.
+                Oito frentes, um só cuidado.
               </h2>
             </div>
             <p className="max-w-sm text-lg leading-relaxed text-ink/70">
