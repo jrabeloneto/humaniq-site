@@ -225,6 +225,13 @@ export const ceo = {
   ],
 } as const;
 
+// Time da Humaniq (colaboradoras). Fotos em /public/equipe.
+export const equipe = [
+  { nome: "Caroline", cargo: "Recrutadora", foto: "/equipe/caroline.jpg" },
+  { nome: "Jackelline", cargo: "Estagiária de RH", foto: "/equipe/jackelline.jpg" },
+  { nome: "Yasmin", cargo: "Estagiária de RH", foto: "/equipe/yasmin.jpg" },
+] as const;
+
 // Logos de clientes extraídos do portfólio (página CLIENTES).
 // TODO (cliente): confirmar a lista, os NOMES e a permissão de uso das marcas.
 export const clientes = Array.from(
