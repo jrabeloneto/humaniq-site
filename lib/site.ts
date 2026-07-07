@@ -232,10 +232,28 @@ export const clientes = Array.from(
   (_, i) => `/clientes/cliente-${String(i + 1).padStart(2, "0")}.png`,
 );
 
-// Galeria de mídia / bastidores. TODO (cliente): adicionar as fotos em /public/midia
-// e listar aqui ({ src, alt }). Enquanto vazio, a seção mostra placeholders elegantes.
+// Vídeo institucional da Humaniq.
+export const videoInstitucional = "/midia/humaniq.mp4";
+
+// A Humaniq na mídia — aparições em TV, rádio, podcasts, revistas e eventos.
 export const midia: { src: string; alt: string }[] = [
-  // { src: "/midia/1.jpg", alt: "Palestra da Humaniq" },
+  { src: "/midia/m03.jpg", alt: "Marcela Viana em entrevista no programa Panorama" },
+  { src: "/midia/m10.jpg", alt: "Marcela Viana em entrevista na JP News" },
+  { src: "/midia/m08.jpg", alt: "Marcela Viana em capa da revista Painel Magnífico" },
+  { src: "/midia/m16.jpg", alt: "Marcela Viana na Band News" },
+  { src: "/midia/m12.jpg", alt: "Marcela Viana em podcast sobre saúde e bem-estar" },
+  { src: "/midia/m04.jpg", alt: "Matéria com a Humaniq na revista +Dinheiro" },
+  { src: "/midia/m13.jpg", alt: "Marcela Viana em estúdio de rádio" },
+  { src: "/midia/m09.jpg", alt: "Marcela Viana em entrevista de televisão" },
+  { src: "/midia/m05.jpg", alt: "Marcela Viana em premiação" },
+  { src: "/midia/m15.jpg", alt: "Marcela Viana em palestra" },
+  { src: "/midia/m02.jpg", alt: "Marcela Viana, CEO da Humaniq, em evento" },
+  { src: "/midia/m17.jpg", alt: "Marcela Viana em palestra sobre gestão de pessoas" },
+  { src: "/midia/m06.jpg", alt: "Marcela Viana em estúdio de TV" },
+  { src: "/midia/m11.jpg", alt: "Marcela Viana em evento" },
+  { src: "/midia/m14.jpg", alt: "Marcela Viana em entrevista" },
+  { src: "/midia/m07.jpg", alt: "Humaniq em evento corporativo" },
+  { src: "/midia/m01.jpg", alt: "Humaniq em evento corporativo" },
 ];
 
 // ⚠️ DEPOIMENTOS FICTÍCIOS — placeholders para o cliente substituir por reais.
