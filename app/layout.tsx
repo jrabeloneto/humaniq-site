@@ -62,7 +62,7 @@ const jsonLd = {
   description:
     "Consultoria em gestão de pessoas, saúde mental, bem-estar corporativo e desenvolvimento humano.",
   url: "https://humaniq.net.br",
-  email: "marcela.viana@humaniq.net.br",
+  email: "atendimento@humaniq.net.br",
   telephone: "+55-92-98472-7761",
   areaServed: "Amazonas, Brasil",
   address: {

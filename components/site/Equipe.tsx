@@ -25,7 +25,7 @@ export default function Equipe() {
         <Reveal
           stagger
           delay={0.05}
-          className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:max-w-3xl"
+          className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4"
         >
           {equipe.map((p) => (
             <RevealItem key={p.nome} className="group">

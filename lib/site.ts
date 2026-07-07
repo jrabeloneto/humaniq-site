@@ -18,7 +18,9 @@ export const contato = {
   telefoneLabel: "92 98472-7761",
   telefone2Label: "92 98606-5621",
   whatsapp: "https://wa.me/5592984727761",
-  email: "marcela.viana@humaniq.net.br",
+  email: "atendimento@humaniq.net.br",
+  emailRecrutamento: "recrutamento@humaniq.net.br",
+  vagasUrl: "https://ats.abler.com.br/jobs/humaniq",
   instagram: "https://www.instagram.com/humaniqq/",
   instagramHandle: "@humaniqq",
   linkedinCeo: "https://www.linkedin.com/in/marcela-viana-970075ab/",
@@ -35,6 +37,7 @@ export const nav = [
   { label: "Diferenciais", href: "#diferenciais" },
   { label: "Liderança", href: "#lideranca" },
   { label: "Mídia", href: "#midia" },
+  { label: "Vagas", href: "#vagas" },
   { label: "Contato", href: "#contato" },
 ] as const;
 
@@ -230,6 +233,7 @@ export const equipe = [
   { nome: "Caroline", cargo: "Recrutadora", foto: "/equipe/caroline.jpg" },
   { nome: "Jackelline", cargo: "Estagiária de RH", foto: "/equipe/jackelline.jpg" },
   { nome: "Yasmin", cargo: "Estagiária de RH", foto: "/equipe/yasmin.jpg" },
+  { nome: "João Victor", cargo: "Trainee", foto: "/equipe/joaovictor.jpg" },
 ] as const;
 
 // Logos de clientes extraídos do portfólio (página CLIENTES).
